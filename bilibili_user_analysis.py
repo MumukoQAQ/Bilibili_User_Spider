@@ -186,14 +186,14 @@ def CiYun():
     print('正在生成词云图...')
     f = open('./up_words.txt', 'r', encoding='utf-8').read()
     w = WordCloud(
-        font_path="C:/Windows/Fonts/simhei.ttf",
+        font_path="C:/Windows/Fonts/simhei.ttf", #字体路径
         background_color='white',
         max_words=5000,
         width=1800,
         height=1600,
         max_font_size=80,
         scale=5,
-        mask=plt.imread('./bjt.jpg')
+        mask=plt.imread('./bjt.jpg') #背景图路径
     ).generate(f)
     w.to_file('词云图.png')
     plt.subplots(figsize=(12, 8), dpi=500)
@@ -205,4 +205,4 @@ level_vip()
 vip()
 level()
 sex()
-# CiYun()
+CiYun()
