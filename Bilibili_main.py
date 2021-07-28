@@ -21,7 +21,6 @@ class Bili():
         self.gz = []
         self.fs = []
         self.gzup = []
-        self.tags = []
         self.yc_count = 0
         self.c = 0
         self.ua = open('./user_agents.txt').read().replace('"', '').split('\n')
@@ -34,7 +33,6 @@ class Bili():
             '关注数': self.gz,
             '粉丝数': self.fs,
             '关注的UP主': self.gzup,
-            '关注的标签':self.tags,
             '个性签名': self.sign,
             '是否开通会员': self.vip,
             '是否是年费会员': self.year_vip
@@ -112,19 +110,7 @@ class Bili():
                 else:
                     print(f"未知问题 UID:{res['data']['mid']} 主页URL:{self.info_url[-1]}")
                     self.gzup.append('未知错误')
-
-                tag = rs.get('https://api.bilibili.com/x/space/tag/sub/list?vmid={}&jsonp=jsonp'.format(res['data']['mid'])).json()
-                if tag['code'] == 0:
-                    tag_names = ''
-                    for tag_name in tag['data']['tags']:
-                        tag_names += tag_name['tag_name'] + ' | '
-                    self.tags.append(tag_names)
-                elif tag['code'] == 53013:
-                    self.tags.append('用户隐私设置未公开')
-                else:
-                    self.tags.append('未知错误')
-                    print('关注标签请求未知错误 URL: https://api.bilibili.com/x/space/tag/sub/list?vmid={}&jsonp=jsonp'.format(res['data']['mid']))
-
+                    
             elif res['code'] == -412:
                 print('请求已被拦截......')
                 print('休息半小时.....')
@@ -168,7 +154,6 @@ class Bili():
  会员字段长度: {len(self.vip)}
  年费会员字段长度: {len(self.year_vip)}
  关注up字段长度: {len(self.gzup)}
- 关注标签字段长度: {len(self.tags)}
  个性签名字段长度: {len(self.sign)}''')
 
 if __name__ == '__main__':
