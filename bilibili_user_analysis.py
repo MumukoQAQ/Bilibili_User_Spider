@@ -188,7 +188,7 @@ def CiYun():
     w = WordCloud(
         font_path="C:/Windows/Fonts/simhei.ttf", #字体路径
         background_color='white',
-        max_words=5000,
+        max_words=5000,       #展示的词语数量，如爬取的数据较少可适当减少
         width=1800,
         height=1600,
         max_font_size=80,
