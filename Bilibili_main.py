@@ -159,4 +159,3 @@ class Bili():
 if __name__ == '__main__':
     Generate(n=1000)    #要爬多少条数据 修改n的参数，默认100
     Bili()
-
