@@ -9,9 +9,3 @@ def Generate(n=1000):
             n -= 1
     with open('./uid.txt','w') as f:
             f.writelines(uids)
-
-
-
-
-
-
