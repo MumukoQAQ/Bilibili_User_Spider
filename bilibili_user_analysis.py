@@ -52,7 +52,6 @@ def level():
     plt.title('等级占比')
     plt.show()
 
-
 def sex():
 
     '''
